@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app = "app">
+  <head>
+    
+  </head>
+
+  <body>
+
+    <md-content>
+
+      
+     
+      <!-- Org Profile -->
+      <md-content ng-controller = "OrgsController as orgs">
+        <md-card>
+          <img ng-src="{{orgs.orgs.avatar_url}}"/>
+        </md-card>
+
+        <md-subheader>{{orgs.orgs.name}}</md-subheader>
+        <md-subheader>{{orgs.orgs.blog}}</md-subheader>
+        <md-subheader>{{orgs.orgs.login}}</md-subheader>
+      </md-content>
+
+    </md-content>
+
+
+    <!--Dependencies-->   
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-animate/angular-animate.js"></script>
+    <script src="vendor/angular-aria/angular-aria.js"></script>
+    <script src="vendor/angular-material/angular-material.js"></script>
+    <script src="vendor/angular-mocks/angular-mocks.js"></script>
+    
+    <!--Modules-->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/orgs/orgs.module.js"></script>
+    <script type="text/javascript" src="app/orgs/controllers/orgs.controller.js"></script>
+    <script type="text/javascript" src="app/orgs/services/orgs.service.js"></script>
+  </body>
+
+</html>

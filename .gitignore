@@ -36,4 +36,6 @@
 ehthumbs.db
 Thumbs.db
 
+#folders
 node_modules
+coverage
