@@ -10,6 +10,13 @@ describe('OrgsService', function(){
     
   }));
 
+  it('should return a promise', inject(function ($q) {
+    var deferred = $q.defer();
+    var promise = deferred.promise;
+
+    expect($OrgsService.get() instanceof promise).toBeEqual(true);
+  }));
+
   it('org', function () {
     expect(typeof $OrgsService.get()).toBeEqual('object');
   });

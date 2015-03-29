@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html ng-app = "app">
   <head>
-    
-  </head>
+    <title>Congit</title>
 
-  <body>
-
-    <md-content>
-
-      
-     
-      <!-- Org Profile -->
-      <md-content ng-controller = "OrgsController as orgs">
-        <md-card>
-          <img ng-src="{{orgs.orgs.avatar_url}}"/>
-        </md-card>
-
-        <md-subheader>{{orgs.orgs.name}}</md-subheader>
-        <md-subheader>{{orgs.orgs.blog}}</md-subheader>
-        <md-subheader>{{orgs.orgs.login}}</md-subheader>
-      </md-content>
-
-    </md-content>
-
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="vendor/angular-material/angular-material.css">
 
     <!--Dependencies-->   
     <script src="vendor/angular/angular.js"></script>
@@ -34,8 +16,65 @@
     <!--Modules-->
     <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/orgs/orgs.module.js"></script>
+
     <script type="text/javascript" src="app/orgs/controllers/orgs.controller.js"></script>
+    
     <script type="text/javascript" src="app/orgs/services/orgs.service.js"></script>
+    
+  </head>
+
+  <body>
+    
+    <div class="container">
+      
+      
+
+        <!-- Org Profile -->
+      <md-content ng-controller = "OrgsController as orgs">
+
+      <form ng-submit="getOrg(orgs.searchText)">
+
+        
+
+        
+
+
+        <md-autocomplete 
+          md-selected-item="selectedItem"
+          md-search-text="orgs.searchText" 
+          md-items="item in orgs.querysearch(orgs.searchText)" 
+          md-item-text="item"
+          placeholder="Search Github Organization"
+          md-delay ="200"
+          md-search-text-change="getOrg(orgs.searchText)">
+
+          
+
+        </md-autocomplete>
+        <!-- <md-button class="md-raised md-accent">Search</md-button> -->
+
+
+
+        
+
+
+          
+          <md-list class="profile" layout="column" ng-show="orgs.searchText">
+            <img class="avatar" ng-show="orgs.orgs.avatar_url" ng-src="{{orgs.orgs.avatar_url}}">
+            <md-card-content flex flex-order="3">   
+              <md-subheader ng-show="orgs.orgs.name" style="text-align: left; margin: 0; padding: 3px;">{{orgs.orgs.name}}</md-subheader>
+              <md-subheader ng-show="orgs.orgs.blog" style="text-align: left; margin: 0; padding: 3px;">Blog: {{orgs.orgs.blog}}</md-subheader>      
+            </md-card-content>
+          </md-card>
+      </form>
+      </md-content>
+    </div>
+
+
+    
+
+
+
   </body>
 
 </html>
